@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React from 'react';
+import Header from './Header';
+import Card from './Card';
 import './App.css';
 
-function App() {
+const App = () => {
+  const cardsData = [
+    {
+      id: 1,
+      title: 'Image 1',
+      description: 'Description for Image 1',
+      image: 'https://placekitten.com/200/300',
+    },
+    {
+      id: 2,
+      title: 'Image 2',
+      description: 'Description for Image 2',
+      image: 'https://placekitten.com/201/300',
+    },
+    {
+      id: 3,
+      title: 'Image 3',
+      description: 'Description for Image 3',
+      image: 'https://placekitten.com/202/300',
+    },
+    {
+      id: 3,
+      title: 'Image 3',
+      description: 'Description for Image 3',
+      image: 'https://placekitten.com/202/300',
+    },
+   
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <section className="card-container">
+        {cardsData.map((card) => (
+          <Card key={card.id} {...card} />
+        ))}
+      </section>
     </div>
   );
-}
+};
 
 export default App;
